@@ -1,11 +1,12 @@
 import { Router } from "express";
-const router = Router(); 
-import {Postsignup}from "./Http/controllers/Signin.js"
+const router = Router();
 
+// ✅ Correct relative paths
+import { Postsignup } from "../controllers/Signup.js";
+import { Avatarcreate } from "../controllers/Avatar.js";
 
-router.post("/signup", Postsignup)
-
-
-
+// Routes
+router.post("/signup", Postsignup);
+router.post("/avatar/create", Avatarcreate);
 
 export default router;

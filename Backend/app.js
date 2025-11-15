@@ -1,22 +1,27 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import http from 'http';
-import env from './env.js'
+import AuthRoutes from "./Http/Routes/AuthRoutes.js";
+
 const app = express();
 import cors from 'cors';
 dotenv.config()
 
 
 app.use(express.urlencoded({extended:true}));
-app.use(express.json);
+app.use(express.json());
  app.use(cors({
-    origin: env.CORS_ORIGIN
+    origin: process.env.CORS_ORIGIN
+
 }));
 
 
-app.use("/api/auth", authrouters)
+app.use("/api/auth", AuthRoutes)
+app.use("/api/avatar", AuthRoutes )
 
 
 const server = http.createServer(app);
 
-server.listen(4444)
+server.listen(5000, () => {
+  console.log("");
+});
