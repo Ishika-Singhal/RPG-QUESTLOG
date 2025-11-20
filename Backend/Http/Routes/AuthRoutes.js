@@ -1,15 +1,16 @@
 import { Router } from "express";
 const router = Router();
 
-// ✅ Correct relative paths
-import { Postsignup } from "../controllers/Signup.js";
+// Controllers
+import { Postsignup } from "../Controllers/Signup.js";
+import { Postsignin } from "../Controllers/SignIn.js";
 import { Avatarcreate } from "../controllers/Avatar.js";
-import {Habitcreate} from "../controllers/Habit.js"
+import { Habitcreate } from "../controllers/Habit.js";
 
 // Routes
 router.post("/signup", Postsignup);
-router.post("/avatarcreate", Avatarcreate);
-router.post("/habitcreate", Habitcreate )
-
+router.post("/signin", Postsignin);
+router.post("/avatar/create", Avatarcreate);
+router.post("/habit/create", Habitcreate);
 
 export default router;
